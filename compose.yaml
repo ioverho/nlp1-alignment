@@ -4,5 +4,6 @@ services:
     image: slidev
     volumes:
       - ./files:/slidev
+      - ./export:/export
     ports:
       - 3030:3030
