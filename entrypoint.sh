@@ -8,7 +8,9 @@ fi
 
 echo "Running NPM install..."
 
-npm install @slidev/cli @slidev/theme-default slidev-theme-neversink
+npm install @slidev/cli@v52.1.0 @slidev/theme-default
+npm install -D playwright-chromium
+npm install slidev-theme-neversink
 
 if [ -f /slidev/slides.md ]; then
     echo "Start slidev..."
