@@ -1,6 +1,6 @@
 ---
 theme: neversink
-neversink_slug: "Alignment in NLP"
+neversink_slug: "Alignment"
 author: Ivo Verhoeven
 
 # Export settings
@@ -28,7 +28,7 @@ layout: intro
 hideInToc: true
 ---
 
-# Aligning Large Language Models to  Human Preference
+# Aligning Large Language Models to Human Preference
 
 [Ivo Verhoeven](mailto:i.o.verhoeven@uva.nl) | [Natural Language Processing 1](https://cl-illc.github.io/nlp1-2025/)
 
@@ -148,11 +148,11 @@ align: l-lt-lt
   - Transformers (2017)
 
 - Objective is still the same
-  $$\underset{\theta}{\argmin} ~ -\log p(x_{t}|x_{<t};\theta)$$
+  $$\underset{\theta}{\argmax} ~ \log p(x_{t}|x_{<t};\theta)$$
 
 - But...
   - Lots of parameters
-  - Training data **is** the internet
+  - Training data is internet-scale
 
 :: right ::
 
@@ -176,12 +176,21 @@ align: l-lt-lt
 
 ... a probability distribution whose samples resemble observed text.
 
+<v-click at="1">
+
 LLMs *are* good LMs
+
+<div class="ns-c-tight">
 
 Capable of generating plausible text from any source
 
+</div>
+
+</v-click>
+
 :: right ::
 
+<v-click at="1">
 
 *Write a fragment of a play that imitates Shakespeare's style. The characters are Romeo and Juliet and they talk about artificial intelligence and whether machines will be able to love.*
 
@@ -197,6 +206,8 @@ that machines, created by man, may be able to understand
 and feel emotion, though whether they can truly love, I
 cannot say.
 ```
+
+</v-click>
 
 ---
 layout: two-cols-title
@@ -215,12 +226,11 @@ align: l-lt-lt
 
 LLMs *are* good LMs
 
-Capable of generating plausible text from ***any*** source
-
 <div class="ns-c-tight">
 
-Modern LLMs are trained on web-scale datasets
-  - Impossible to verify all sources
+Capable of generating plausible text from ***any*** source
+- Modern LLMs are trained on web-scale datasets
+- Impossible to verify all sources
 
 </div>
 
@@ -255,9 +265,11 @@ layout: default
 # Focus on Dialogue Systems (Chat)
 #### <span class="bg-red-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Alignment</span>
 
-Instead of language models, we focus on dialogue models:
-  $$p(y|x;\theta)$$
-Here $y$ is not the completion, but the response to prompt $x$
+Instead of language models, 
+  $$p(x_{t}|x_{<t;\theta})$$
+we focus on dialogue models:
+  $$p(y_{t}|x, y_{<t};\theta)$$
+Here $y_{t}$ is not the completion, but the response to prompt $x$
 
 ---
 hideInToc: true
@@ -356,6 +368,16 @@ align: l-lt-lt
 </div>
 
 ---
+layout: fact
+---
+
+<div style="font-size: 2.5rem;">
+
+More data & more parameters will not turn an LLM into a good dialogue system
+
+</div>
+
+---
 hideInToc: false
 level: 1
 title: <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
@@ -379,16 +401,25 @@ layout: default
 We have a good language model $f(x_{t}|x_{<t};\theta)$ that maximizes
   $$\log p(x_{t}|x_{<t};\theta)$$
 
+<v-click at="1">
+
 We want a model that maximizes **utility** (subject to alignment constraints):
   $$\pi(y|x;\theta)=\underset{\theta}{\argmax}~~r(y|x),~~ y\sim p(y|x;\theta)$$
 
+</v-click>
+
+<v-click at="2">
+
 Model that maximizes expected reward is called the **policy** model
   $$\pi(y|x;\theta)$$
+
+</v-click>
 
 ---
 hideInToc: true
 level: 2
 layout: two-cols-title
+align: l-lt-cm
 ---
 
 :: title ::
@@ -398,6 +429,8 @@ layout: two-cols-title
 
 :: left ::
 
+<v-clicks at="1">
+
 0. Finetune language model on human responses
 1. Annotate language model responses for human preference
 2. Train a model to estimate expected reward function
@@ -406,10 +439,11 @@ layout: two-cols-title
     $$\underset{\theta}{\argmax}~~\mathtt{rm}(y;\phi),~~ y\sim \pi(y|x;\theta) $$
 4. Repeat 2-3 until convergence
 
+</v-clicks>
+
 :: right ::
 
-<SlidevVideo autoplay muted loop >
-  <!-- Anything that can go in an HTML video element. -->
+<SlidevVideo autoplay muted loop style="width: 100%;">
   <source src="https://packaged-media.redd.it/v6hh26gw3mz51/pb/m2-res_480p.mp4?m=DASHPlaylist.mpd&v=1&e=1761314400&s=5c09144116d9e4cf132506d488f0d26d73716e61" type="video/mp4" />
   <p>
     Your browser does not support videos.
@@ -427,11 +461,14 @@ title: Supervised Finetuning
 #### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 Fine tune using standard autoregressive objective
-$$\underset{\theta}{\argmax}\log p(x_{t}|x_{<t};\theta),~~x\sim \mathcal{D}^{\text{SFT}}$$
+$$\underset{\theta}{\argmax}\log p(y_{t}|x, y_{<t};\theta),~~x,y\sim \mathcal{D}^{\text{SFT}}$$
 
 <br>
 
+<v-click at="1">
+
 <div class="grid grid-cols-2 gap-4 text-center">
+
 <div>
 
 **Standard Finetuning**
@@ -439,6 +476,7 @@ $$\underset{\theta}{\argmax}\log p(x_{t}|x_{<t};\theta),~~x\sim \mathcal{D}^{\te
 <img src="/figures/train_on_completion.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
 
 </div>
+
 <div>
 
 **Conversational Finetuning**
@@ -446,6 +484,7 @@ $$\underset{\theta}{\argmax}\log p(x_{t}|x_{<t};\theta),~~x\sim \mathcal{D}^{\te
 <img src="/figures/train_on_assistant.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
 
 </div>
+
 </div>
 
 <br>
@@ -455,6 +494,8 @@ $$\underset{\theta}{\argmax}\log p(x_{t}|x_{<t};\theta),~~x\sim \mathcal{D}^{\te
 Images from [TRL/SFT Trainer](https://huggingface.co/docs/trl/en/sft_trainer) documentation
 
 </div>
+
+</v-click>
 
 ---
 hideInToc: false
@@ -481,8 +522,12 @@ Collecting human feedback is hard
 
 Much, much easier to rank responses using pairwise comparisons, and infer reward afterward
 
+<v-click at="1">
+
 Dataset is now consists of prompts and an **ordering** over sampled responses:
   $$(x, [y_{1}, y_{2}, \ldots])\sim\mathcal{D}_{\text{HF}}$$
+
+</v-click>
 
 :: right ::
 
@@ -508,8 +553,14 @@ layout: default
 Dataset is now consists of prompts and an **ordering** over responses:
   $$\mathbf{y}=[\ldots, y_{i}, y_{j}, \ldots],~~y_{i}\succ y_{j},~~i<j$$
 
+<v-click at="1">
+
 We want to train a reward model, $\mathtt{rm}:\mathcal{Y}\rightarrow \mathbb{R}$, that can reproduce human preference ordering:
   $$\mathtt{rm}(y^{+}|x;\phi)>\mathtt{rm}(y^{-}|x;\phi) \implies y^{+}\succ y^{-}$$
+
+</v-click>
+
+<v-click at="2">
 
 Use [Bradley-Terry](en.wikipedia.org/wiki/Bradley–Terry_model) model to convert rewards into probabilities:
 $$
@@ -519,8 +570,14 @@ p(y^{+}\succ y^{-}|x;\phi)&=\sigma(\mathtt{rm}(y^{+}|x;\phi)-\mathtt{rm}(y^{-}|x
 \end{align*}
 $$
 
+</v-click>
+
+<v-click at="3">
+
 Train to maximize Bradley-Terry reward probability:
   $$\underset{\phi}{\argmax} \log \sigma(\mathtt{rm}(y^{+}|x;\phi)-\mathtt{rm}(y^{-}|x;\phi))$$
+
+</v-click>
 
 ---
 hideInToc: true
@@ -535,13 +592,23 @@ layout: two-cols-title
 
 :: left ::
 
+<div class="ns-c-tight">
+
 Train to maximize Bradley-Terry reward probability:
   $$\underset{\phi}{\argmax} \log \sigma(\mathtt{rm}(y^{+}|x;\phi)-\mathtt{rm}(y^{-}|x;\phi))$$
 
 Essentially, maximize margin between pairwise responses:
 $$\mathtt{rm}(y^{+}|x;\phi)-\mathtt{rm}(y^{-}|x;\phi)$$
 
+<v-click at="1">
+
 Typically, we initialize $\phi$ from the SFT/policy model weights $\theta$
+
+**Reward model should be as competent as policy model**
+
+</v-click>
+
+</div>
 
 :: right ::
 
@@ -565,14 +632,15 @@ layout: default
 
 We want to reinforce model responses that result in high reward (according to the reward model, $\mathtt{rm}$)
 
-Proximal Policy Optimization (PPO)<sup>[1]</sup> is a common reinforcement learning algorithm for doing this. PPO balances language and reward objectives:
+<v-click at="1">
 
+Proximal Policy Optimization (PPO)<sup>[1]</sup> is a common reinforcement learning algorithm for doing this. PPO balances language and reward objectives:
 $$
 \underset{\theta}{\argmax}~~\underbrace{\mathtt{rm}(y|x;\phi)}_{\text{(1)}}-\beta\underbrace{D_{KL}(\pi(y|x;\theta);p(y|x;\theta^{\text{(ref)}}))}_{\text{(2)}},~~y\sim\pi(y|x;\theta)
 $$
-
 1. Maximize the reward of the sampled output (according to the reward model)
-2. Minimize divergence from the reference language model in the *output distribution*
+2. Minimize divergence from the reference language 
+model in the *output distribution*
 
 <br><br>
 
@@ -581,6 +649,8 @@ $$
 [1] Schulman et al. (2017). Proximal policy optimization algorithms. arXiv:1707.06347.
 
 </div>
+
+</v-click>
 
 ---
 layout: default
@@ -656,10 +726,12 @@ layout: two-cols-title
 
 :: title ::
 
-# RLHF Overview
+# The Pros and Cons of RLHF
 #### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 :: left ::
+
+<v-click at="1">
 
 <div class="ns-c-tight">
 
@@ -668,14 +740,20 @@ layout: two-cols-title
 - Outperforms SFT and other non-RLHF techniques
 - Learn human norms and values implicitly
 
+</div>
+
+</v-click>
+
+<v-click at="2">
+
+<div class="ns-c-tight">
+
 **Cons**
 
 - Expensive
 - Very complex and hyperparam sensitive<sup>[1, 2]</sup>
 - Very brittle
 - Reward model and policy model drift
-
-</div>
 
 <div class="ns-c-cite">
 
@@ -685,24 +763,36 @@ layout: two-cols-title
 
 </div>
 
+</div>
+
+</v-click>
 
 :: right ::
 
-<img src="./figures/summary_quality.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
+<v-click at="1">
+
+<img src="./figures/instructgpt-rlhf-effect.svg" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
 
 <div class="ns-c-cite">
 
 Ziegler et al. (2019). Fine-tuning language models from human preferences. arXiv:1909.08593.
 
 </div>
+
+</v-click>
+
+<v-click at="2">
 
 <img src="./figures/rl_loop.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
 
 <div class="ns-c-cite">
 
-Ziegler et al. (2019). Fine-tuning language models from human preferences. arXiv:1909.08593.
+Sutton and Barto (2018). Reinforcement Learning: An Introduction. MIT Press. 2nd ed.
+
 
 </div>
+
+</v-click>
 
 ---
 hideInToc: false
@@ -805,7 +895,9 @@ color: white
 
 :: left ::
 
-Train models on 2T tokens (~400 years of compute) in about 3 months
+Train models on 2T tokens (~400 GPU years) in about 3 months
+
+<v-click at="1">
 
 Training data was scrubbed of Personal or Identifiable Information (PII) and any copyrighted materials
 
@@ -818,6 +910,8 @@ Llama2 team did **not**:
 This avoids **demographic erasure** and teaches models about text classes
 
 </div>
+
+</v-click>
 
 :: right ::
 
@@ -842,7 +936,7 @@ color: white
 
 <br>
 
-<img src="./figures/llama2_rlhf_cycle.png" style="width:80%;display: block;margin-left: auto;margin-right: auto;">
+<img src="./figures/llama2_rlhf_cycle.jpg" style="width:80%;display: block;margin-left: auto;margin-right: auto;">
 
 <div class="ns-c-cite">
 
@@ -886,7 +980,7 @@ Collect failure cases, augment with safety inducing prompt, produce safe respons
 </div>
 <div class="grid-item grid-col-span-1 pl-1 pr-1">
 
-Standard auto-regressive training
+Standard autoregressive training
 
 </div>
 <div class="grid-item grid-col-span-1 pl-1 pr-1">
@@ -896,7 +990,7 @@ PPO and Rejection Sampling with preference data
 </div>
 <div class="grid-item grid-col-span-1 pl-1 pr-1">
 
-Standard auto-regressive training
+Standard autoregressive training
 
 </div>
 </div>
@@ -948,9 +1042,25 @@ Use different model checkpoints and generation parameters to generate many respo
 Annotators are also asked to rate quality margin
   $$\underset{\phi}{\argmax} \log \sigma(\mathtt{rm}(y^{+}|x;\phi)-\mathtt{rm}(y^{-}|x;\phi)-m(y^{+},y^{-}|x))$$
 
+<v-click at="1">
+
 Build **separate** rewards models for *safety* and *helpfulness*
 
-Reject sampled responses where $\mathtt{rm}_{\text{safety}}(y|x;\phi)<0.15$
+Some prompts are meant to teach helpfulness, some teach safety
+
+</v-click>
+
+---
+layout: full
+---
+
+# Preference Data & Reward Model Training
+
+#### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
+
+<br>
+
+<img src="./figures/llama2_rm_distribution.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
 
 ---
 layout: two-cols-title
@@ -993,6 +1103,8 @@ color: white
 
 Use rejection sampling to further finetune towards high-quality responses
 
+<v-click at="1">
+
 <div class="ns-c-tight">
 
 Relative to PPO:
@@ -1011,13 +1123,15 @@ Requires model to be competent to be effective
 
 </div>
 
+</v-click>
+
 :: right ::
 
-<img src="./figures/rejection_sampling.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
+<img src="./figures/rejection_sampling.webp" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
 
 <div class="ns-c-cite">
 
-Raschka (2023). [LLM TrainingL RLHF and Its Alternatives.](https://magazine.sebastianraschka.com/p/llm-training-rlhf-and-its-alternatives)
+Raschka (2023). [LLM Training: RLHF and Its Alternatives.](https://magazine.sebastianraschka.com/p/llm-training-rlhf-and-its-alternatives)
 
 </div>
 
@@ -1031,8 +1145,8 @@ color: white
 #### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
 
 <div class="grid w-full h-fit grid-cols-2 grid-rows-2 mt-5 mb-auto">
-<div class="grid-item grid-col-span-1"><img src="./figures/llama2_rm_iterations.svg" style="width:80%;display: block;margin-left: auto;margin-right: auto;"></div>
-<div class="grid-item grid-col-span-1"><img src="./figures/llama2_gpt4_iterations.svg" style="width:80%;display: block;margin-left: auto;margin-right: auto;"></div>
+<div class="grid-item grid-col-span-1"><img src="./figures/llama2_rm_iterations.svg" style="width:90%;display: block;margin-left: auto;margin-right: auto;"></div>
+<div class="grid-item grid-col-span-1"><img src="./figures/llama2_gpt4_iterations.svg" style="width:90%;display: block;margin-left: auto;margin-right: auto;"></div>
 <div class="grid-item grid-col-span-2 text-left h-fit mt-2">
 
 Important to iterate RM, PPO and Rejection Sampling training
@@ -1090,6 +1204,9 @@ color: white
 <div class="ns-c-tight">
 
 Three main approaches to evaluation
+
+<v-clicks>
+
 - RM/LLM-as-a-Judge
 - External Benchmarks
 - **Red-teaming**
@@ -1097,11 +1214,13 @@ Three main approaches to evaluation
   - From 1.8 succesful prompts per annotator per hour to 0.45
   - 90% of red-teaming prompts refusal
 
+</v-clicks>
+
 </div>
 
-
-
 :: right ::
+
+<v-click at="1">
 
 <img src="./figures/llama2_rlhf_impact.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
 
@@ -1110,6 +1229,8 @@ Three main approaches to evaluation
 Llama2 Team (2023). Llama 2: Open Foundation and Fine-Tuned Chat Models. arXiv:2307.09288
 
 </div>
+
+</v-click>
 
 ---
 hideInToc: false
@@ -1148,20 +1269,29 @@ layout: default
 
 <br>
 
+
+
 Recall the default PPO objective:
 
 $$
 \underset{\theta}{\argmax}~~\mathtt{rm}(y|x;\phi)-\beta D_{KL}(\pi(y|x;\theta);p(y|x;\theta^{\text{(ref)}})),~~y\sim\pi(y|x;\theta)
 $$
 
+<v-click at="1">
+
 For *any reward function*, assuming *offline* policy learning, the **optimal policy** is known to be<sup>[1]</sup>:
 
 $$\begin{align*}
-\pi^{*}(y|x;\theta^{*})&=\frac{1}{Z(x)}p(y|x;\theta^{\text{ref}})\exp\left\{\frac{1}{\beta}\mathtt{rm}(y|x;\phi)\right\} \\
-Z(x)&=\sum_{\mathcal{Y}}p(y|x;\theta^{\text{ref}})\exp\left\{\frac{1}{\beta}\mathtt{rm}(y|x;\phi)\right\}
+\pi^{*}(y|x)&=\frac{1}{Z(x)}p(y|x;\theta^{\text{ref}})\exp\left\{\frac{1}{\beta}\mathtt{rm}(y|x;\phi)\right\}
 \end{align*}$$
 
-where $Z(x)$ is not tractable
+where $Z(x)$ is an intractable normalizing function
+
+<v-click at="2">
+
+**No dependence on $\theta$, only $\phi$**
+
+</v-click>
 
 <br>
 
@@ -1171,23 +1301,7 @@ where $Z(x)$ is not tractable
 
 </div>
 
----
-layout: default
----
-
-# DPO Derivation
-#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
-
-<br>
-
-For the **optimal** policy model, the natural reward model is then:
-
-$$\begin{align*}
-\red{\pi^{*}(y|x;\theta^{*})}&=\green{\frac{1}{Z(x)}}\blue{p(y|x;\theta^{\text{ref}})}\exp\left\{\orange{\frac{1}{\beta}}\purple{\mathtt{rm}(y|x;\phi)}\right\} \\
-\exp\left\{-\orange{\frac{1}{\beta}}\purple{\mathtt{rm}(y|x;\phi)}\right\}&=\green{\frac{1}{Z(x)}}\frac{\blue{p(y|x;\theta^{\text{ref}})}}{\red{\pi^{*}(y|x;\theta^{*})}} \\
--\orange{\frac{1}{\beta}}\purple{\mathtt{rm}(y|x;\phi)}&=-\log\green{Z(x)}+\log\frac{\blue{p(y|x;\theta^{\text{ref}})}}{\red{\pi^{*}(y|x;\theta^{*})}} \\
-\purple{\mathtt{rm}(y|x;\phi)}&=\orange{\beta}\log\frac{\red{\pi^{*}(y|x;\theta^{*})}}{\blue{p(y|x;\theta^{\text{ref}})}}+\orange{\beta}\log\green{Z(x)}
-\end{align*}$$
+</v-click>
 
 ---
 layout: default
@@ -1198,22 +1312,52 @@ layout: default
 
 <br>
 
-For the **optimal** policy model, the natural reward model is then:
+For the **optimal policy** model, the corresponding reward model is:
+
+$${1|2|3|4|5}
+\begin{align*}
+\red{\pi^{*}(y|x)}&=\green{\frac{1}{Z(x)}}\blue{p(y|x;\theta^{\text{ref}})}\exp\left\{\orange{\frac{1}{\beta}}\purple{\mathtt{rm}(y|x;\phi)}\right\} \\
+\exp\left\{-\orange{\frac{1}{\beta}}\purple{\mathtt{rm}(y|x;\phi)}\right\}&=\green{\frac{1}{Z(x)}}\frac{\blue{p(y|x;\theta^{\text{ref}})}}{\red{\pi^{*}(y|x)}} \\
+-\orange{\frac{1}{\beta}}\purple{\mathtt{rm}(y|x;\phi)}&=-\log\green{Z(x)}+\log\frac{\blue{p(y|x;\theta^{\text{ref}})}}{\red{\pi^{*}(y|x)}} \\
+\purple{\mathtt{rm}(y|x;\phi)}&=\orange{\beta}\log\frac{\red{\pi^{*}(y|x)}}{\blue{p(y|x;\theta^{\text{ref}})}}+\orange{\beta}\log\green{Z(x)}
+\end{align*}
+$$
+
+---
+layout: default
+---
+
+# DPO Derivation
+#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
+
+<br>
+
+For the **optimal policy** model, the corresponding reward model is:
 
 
-$$\mathtt{rm}(y|x;\phi)=\beta\log\frac{\pi^{*}(y|x;\theta^{*})}{p(y|x;\theta^{\text{ref}})}+\beta\log Z(x)$$
+$$\mathtt{rm}(y|x;\phi)=\beta\log\frac{\pi^{*}(y|x)}{p(y|x;\theta^{\text{ref}})}+\beta\log{Z(x)}$$
+
+<v-click at="1">
 
 We use Bradley-Terry model to connect rewards to ranks:
 
 $$
-p(y^{+}\succ y^{-})=\sigma(\mathtt{rm}(y^{+}|x;\phi)-\mathtt{rm}(y^{-}|x;\phi))
+p(\green{y^{+}}\succ \red{y^{-}})=\sigma(\mathtt{rm}(\green{y^{+}}|x;\phi)-\mathtt{rm}(\red{y^{-}}|x;\phi))
 $$
 
+</v-click>
+
+<v-click at="2">
+
 Plugging in the natural reward model:
-$$\begin{align*}
-p(y^{+}\succ y^{-})&=\sigma\left(\left(\beta\log\frac{\pi^{*}(y^{+}|x;\theta^{*})}{p(y^{+}|x;\theta^{\text{ref}})}+\beta\log Z(x)\right)-\left(\beta\log\frac{\pi^{*}(y^{-}|x;\theta^{*})}{p(y^{-}|x;\theta^{\text{ref}})}+\beta\log Z(x)\right)\right) \\
-&=\sigma\left(\beta\log\frac{\pi^{*}(y^{+}|x;\theta^{*})}{p(y^{+}|x;\theta^{\text{ref}})}-\beta\log\frac{\pi^{*}(y^{-}|x;\theta^{*})}{p(y^{-}|x;\theta^{\text{ref}})}\right)
-\end{align*}$$
+$$
+\begin{align*}
+p(\green{y^{+}}\succ \red{y^{-}})&=\sigma\left(\left(\beta\log\frac{\pi^{*}(\green{y^{+}}|x;\theta^{*})}{p(\green{y^{+}}|x;\theta^{\text{ref}})}+\beta\log Z(x)\right)-\left(\beta\log\frac{\pi^{*}(\red{y^{-}}|x;\theta^{*})}{p(\red{y^{-}}|x;\theta^{\text{ref}})}+\beta\log Z(x)\right)\right) \\
+&=\sigma\left(\beta\log\frac{\pi^{*}(\green{y^{+}}|x;\theta^{*})}{p(\green{y^{+}}|x;\theta^{\text{ref}})}-\beta\log\frac{\pi^{*}(\red{y^{-}}|x;\theta^{*})}{p(\red{y^{-}}|x;\theta^{\text{ref}})}\right)
+\end{align*}
+$$
+
+</v-click>
 
 ---
 layout: default
@@ -1224,11 +1368,30 @@ layout: default
 
 <br>
 
-$$p(y^{+}\succ y^{-}|\theta,\theta^{\text{ref}})=\sigma\left(\beta\log\frac{\pi(y^{+}|x;\theta)}{p(y^{+}|x;\theta^{\text{ref}})}-\beta\log\frac{\pi(y^{-}|x;\theta)}{p(y^{-}|x;\theta^{\text{ref}})}\right)$$
+Since we don't have $\pi^{*}(y|x)$, use $\pi(y|x;\theta)$ as proxy:
+
+$$p(\green{y^{+}}\succ \red{y^{-}}|\theta)=\sigma\left(\beta\log\frac{\pi(\green{y^{+}}|x;\theta)}{p(\green{y^{+}}|x;\theta^{\text{ref}})}-\beta\log\frac{\pi(\red{y^{-}}|x;\theta)}{p(\red{y^{-}}|x;\theta^{\text{ref}})}\right)$$
+
+<v-click at="1">
 
 This is a differentiable policy model!
 
-$$\begin{align*}\nabla_{\theta} &\log p(y^{+}\succ y^{-}|\theta,\theta^{\text{ref}}) =-\beta p(y^{+}\succ y^{-}|\theta,\theta^{\text{ref}})\cdot\left[\nabla_{\theta}\log \pi(y^{+}|x;\theta)-\nabla_{\theta}\log \pi(y^{-}|x;\theta) \right]\end{align*}$$
+$$\begin{align*}\nabla_{\theta} &\log p(\green{y^{+}}\succ \red{y^{-}}|\theta) =\beta \underbrace{p(\green{y^{+}}\succ \red{y^{-}}|\theta)}_{(1)}\cdot\underbrace{\left[\nabla_{\theta}\log \pi(\green{y^{+}}|x;\theta)-\nabla_{\theta}\log \pi(\red{y^{-}}|x;\theta) \right]}_{(2)}\end{align*}$$
+
+</v-click>
+
+<v-click at="2">
+
+<div class="ns-c-tight">
+
+Achieves three things:
+1. Weights examples by certainty of reward model that $\green{y^{+}}\succ \red{y^{-}}$
+2. Increases likelihood of chosen samples
+3. Decreases likelihood of rejected samples
+
+</div>
+
+</v-click>
 
 ---
 layout: two-cols-title
@@ -1243,9 +1406,10 @@ layout: two-cols-title
 
 <div class="ns-c-tight">
 
-Achieves two things*:
-- Increases likelihood of chosen samples
-- Decreases likelihood of rejected samples
+Achieves three things*:
+1. Weights examples by certainty of reward model that $\green{y^{+}}\succ \red{y^{-}}$
+2. Increases likelihood of chosen samples
+3. Decreases likelihood of rejected samples
 
 </div>
 
@@ -1260,6 +1424,78 @@ Achieves two things*:
 \* Degenerate case where both likelihoods decrease exists
 
 </small>
+
+---
+layout: two-cols-title
+---
+
+:: title ::
+
+# The Pros and Cons of DPO
+#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
+
+:: left ::
+
+<v-click at="1">
+
+<div class="ns-c-tight">
+
+**Pros**
+
+- Much simpler
+- Much cheaper
+- Much more stable
+
+</div>
+
+</v-click>
+
+<br>
+
+<v-click at="2">
+
+<div class="ns-c-tight">
+
+**Cons**
+
+- Offline, less exploration under policy
+- Less robust to OoD shifts<sup>[1]</sup>
+
+<div class="ns-c-cite">
+
+[1] Xu et al. 2024. Is DPO Superior to PPO for LLM Alignment? A Comprehensive Study. arXiv:2404.10719.
+
+</div>
+
+</div>
+
+</v-click>
+
+:: right ::
+
+<v-click at="1">
+
+```python
+import torch.nn.functional as F 
+
+def dpo_loss(pi_logps, ref_logps, yw_idxs, yl_idxs, beta): 
+  pi_yw_logps = pi_logps[yw_idxs]
+  pi_yl_logps = pi_logps[yl_idxs]
+  
+  ref_yw_logps = ref_logps[yw_idxs]
+  ref_yl_logps = ref_logps[yl_idxs] 
+  
+  pi_logratios = pi_yw_logps - pi_yl_logps
+  ref_logratios = ref_yw_logps - ref_yl_logps  
+  
+  losses = -F.logsigmoid(beta * (pi_logratios - ref_logratios))
+  
+  rewards = beta * (pi_logps - ref_logps).detach() 
+  
+  return losses, rewards
+```
+
+</v-click>
 
 ---
 hideInToc: false
