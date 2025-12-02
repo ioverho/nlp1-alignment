@@ -33,7 +33,7 @@ hideInToc: true
 [Ivo Verhoeven](mailto:i.o.verhoeven@uva.nl) | [Natural Language Processing 1](https://cl-illc.github.io/nlp1-2025/)
 
 <figure style="display: flex; justify-content: center;">
-  <img src="./figures/cover.jpg" style="position: relative;overflow: hidden;width: 100%;">
+  <img src="./figures/joost_swarte_1.jpg" style="position: relative;overflow: hidden;width: 100%;">
 </figure>
 
 ---
@@ -60,9 +60,9 @@ layout: two-cols-title
 
 - 2020 – 2022: MSc. AI at University of Amsterdam
 
-  - Thesis on with Wilker on meta-learning, morphology and translation
+  - Thesis on with Wilker Aziz on meta-learning, morphology and translation
 
-  - Took NLP1 in 2020
+  - Took NLP1 in 2020 (COVID edition)
 
 <br>
 
@@ -97,7 +97,7 @@ align: l-lt-lt
 ---
 hideInToc: false
 level: 1
-title: <span class="bg-orange-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">LLMs</span>
+title: <span class="bg-slate-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">LLMs</span>
 layout: two-cols-title
 columns: is-6
 align: l-lt-lt
@@ -106,7 +106,7 @@ align: l-lt-lt
 :: title ::
 
 # Large Language Models
-#### <span class="bg-orange-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">LLMs</span>
+#### <span class="bg-slate-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">LLMs</span>
 
 :: left ::
 
@@ -139,8 +139,8 @@ align: l-lt-lt
 
 :: title ::
 
-# Architecture
-#### <span class="bg-orange-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">LLMs</span>
+# The Transformer
+#### <span class="bg-slate-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">LLMs</span>
 
 :: left ::
 
@@ -170,7 +170,7 @@ align: l-lt-lt
 :: title ::
 
 # A good LM is...
-#### <span class="bg-orange-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">LLMs</span>
+#### <span class="bg-slate-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">LLMs</span>
 
 :: left ::
 
@@ -218,7 +218,7 @@ align: l-lt-lt
 :: title ::
 
 # A good LM is...
-#### <span class="bg-orange-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">LLMs</span>
+#### <span class="bg-slate-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">LLMs</span>
 
 :: left ::
 
@@ -249,13 +249,13 @@ well. Then, you can add a small amount of ...
 ---
 hideInToc: false
 level: 1
-title: <span class="bg-red-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Alignment</span>
+title: <span class="bg-rose-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Alignment</span>
 layout: section
-color: red
+color: rose-light
 ---
 
 # Aligning LMs to Human Preference
-#### <span class="bg-red-200 text-red-500 p-0.5 pl-2 pr-2 m-0 rounded">Alignment</span>
+#### <span class="bg-rose-500 text-rose-100 p-0.5 pl-2 pr-2 m-0 rounded">Alignment</span>
 
 ---
 hideInToc: true
@@ -263,9 +263,9 @@ layout: default
 ---
 
 # Focus on Dialogue Systems (Chat)
-#### <span class="bg-red-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Alignment</span>
+#### <span class="bg-rose-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Alignment</span>
 
-Instead of language models, 
+Instead of language models,
   $$p(x_{t}|x_{<t;\theta})$$
 we focus on dialogue models:
   $$p(y_{t}|x, y_{<t};\theta)$$
@@ -281,7 +281,7 @@ align: l-lt-lt
 :: title ::
 
 # Chat requires more than just a good LM
-#### <span class="bg-red-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Alignment</span>
+#### <span class="bg-rose-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Alignment</span>
 
 :: left ::
 
@@ -300,7 +300,34 @@ Good responses are:
 
 :: right ::
 
+<v-click at="1">
+
 <img src="https://imgs.xkcd.com/comics/the_three_laws_of_robotics.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
+
+</v-click>
+
+---
+hideInToc: true
+layout: two-cols-title
+columns: is-6
+align: l-lt-lt
+---
+
+:: title ::
+
+# How do we measure 'good' responses?
+#### <span class="bg-rose-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Alignment</span>
+
+:: left ::
+
+- Good responses are **non-stationary** and **context-dependent**
+  - Different cultures react differently to the same language
+- Usually subtle differences make all the difference
+- No statistical measure can be defined
+
+:: right ::
+
+<img src="/figures/anglo-dutch-translation.jpg" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
 
 ---
 layout: quote
@@ -321,31 +348,8 @@ align: l-lt-lt
 
 :: title ::
 
-# How do we measure 'good' responses?
-#### <span class="bg-red-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Alignment</span>
-
-:: left ::
-
-- Good responses are **non-stationary** and **context-dependent**
-  - Different cultures react differently to the same language
-- Usually subtle differences make all the difference
-- No statistical measure can be defined
-
-:: right ::
-
-<img src="/figures/anglo-dutch-translation.jpg" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
-
----
-hideInToc: true
-layout: two-cols-title
-columns: is-6
-align: l-lt-lt
----
-
-:: title ::
-
 # Language Modelling and Chat are opposed objectives
-#### <span class="bg-red-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Alignment</span>
+#### <span class="bg-rose-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Alignment</span>
 
 :: left ::
 
@@ -380,23 +384,23 @@ More data & more parameters will not turn an LLM into a good dialogue system
 ---
 hideInToc: false
 level: 1
-title: <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+title: <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 layout: section
-color: violet
+color: emerald-light
 ---
 
 # Reinforcement Learning from Human Feedback
-#### <span class="bg-violet-200 text-violet-500 p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+#### <span class="bg-emerald-500 text-emerald-100 p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 ---
 hideInToc: true
 level: 2
-title: <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+title: <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 layout: default
 ---
 
 # The Goal
-#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+#### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 We have a good language model $f(x_{t}|x_{<t};\theta)$ that maximizes
   $$\log p(x_{t}|x_{<t};\theta)$$
@@ -425,7 +429,7 @@ align: l-lt-cm
 :: title ::
 
 # Reinforcement Learning from Human Feedback
-#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+#### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 :: left ::
 
@@ -458,7 +462,7 @@ title: Supervised Finetuning
 ---
 
 # Step 0: Supervised Finetuning
-#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+#### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 Fine tune using standard autoregressive objective
 $$\underset{\theta}{\argmax}\log p(y_{t}|x, y_{<t};\theta),~~x,y\sim \mathcal{D}^{\text{SFT}}$$
@@ -507,7 +511,7 @@ layout: two-cols-title
 :: title ::
 
 # Step 1: Collecting Human Feedback
-#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+#### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 :: left ::
 
@@ -548,7 +552,7 @@ layout: default
 ---
 
 # Step 2: Reward Model Training
-#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+#### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 Dataset is now consists of prompts and an **ordering** over responses:
   $$\mathbf{y}=[\ldots, y_{i}, y_{j}, \ldots],~~y_{i}\succ y_{j},~~i<j$$
@@ -588,7 +592,7 @@ layout: two-cols-title
 :: title ::
 
 # Step 2: Reward Model Training
-#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+#### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 :: left ::
 
@@ -628,7 +632,7 @@ layout: default
 ---
 
 # Step 3: Policy Model Training
-#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+#### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 We want to reinforce model responses that result in high reward (according to the reward model, $\mathtt{rm}$)
 
@@ -657,18 +661,26 @@ layout: default
 ---
 
 # Step 3: Policy Model Training
-#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+#### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 How do we take gradient through sampling?
 
 $$\theta_{t+1}=\theta_{t}-\eta\nabla_{\theta_{t}}\left[\mathtt{rm}(y|x;\phi)-\beta D_{KL}(\pi(y|x;\theta_{t});p(y|x;\theta^{\text{(ref)}}_{0})),~~y\sim\pi(y|x;\theta_{t})\right]$$
+
+<br>
+
+<v-click at="1">
+
+<img src="./figures/rl_course.png" style="width:80%;display: block;margin-left: auto;margin-right: auto;">
+
+</v-click>
 
 ---
 layout: default
 ---
 
 # Step 3: Policy Model Training
-#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+#### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 <br>
 <img src="./figures/ppo_framework.svg" style="width:90%;display: block;margin-left: auto;margin-right: auto;">
@@ -680,33 +692,6 @@ Zheng et al. (2023). Secrets of RLHF in Large Language Models Part I: PPO. arXiv
 </div>
 
 ---
-layout: two-cols-title
----
-
-:: title ::
-
-# Step 3: Policy Model Training
-#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
-
-:: left ::
-
-How do we take gradient through sampling?
-
-$$\begin{align*}
-\theta_{t+1}&=\theta_{t}-\eta\nabla_{\theta_{t}}[\\
-&\mathtt{rm}(y|x;\phi)-\\
-&\beta D_{KL}(\pi(y|x;\theta_{t});p(y|x;\theta^{\text{(ref)}}_{0})),\\
-&~~y\sim\pi(y|x;\theta_{t}) \\
-&]
-\end{align*}$$
-
-... it's complicated.
-
-:: right ::
-
-<img src="./figures/rl_course.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
-
----
 hideInToc: false
 level: 2
 title: Overview
@@ -714,7 +699,7 @@ layout: default
 ---
 
 # RLHF with PPO Overview
-#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+#### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 <br>
 <img src="./figures/ppo_overview.png" style="width:80%;display: block;margin-left: auto;margin-right: auto;">
@@ -726,8 +711,8 @@ layout: two-cols-title
 
 :: title ::
 
-# The Pros and Cons of RLHF
-#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
+# The Good and the Bad of RLHF
+#### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 :: left ::
 
@@ -735,7 +720,7 @@ layout: two-cols-title
 
 <div class="ns-c-tight">
 
-**Pros**
+**Good**
 
 - Outperforms SFT and other non-RLHF techniques
 - Learn human norms and values implicitly
@@ -746,9 +731,9 @@ layout: two-cols-title
 
 <v-click at="2">
 
-<div class="ns-c-tight">
+<div class="ns-c-tight" style="margin-top:1rem;">
 
-**Cons**
+**Bad**
 
 - Expensive
 - Very complex and hyperparam sensitive<sup>[1, 2]</sup>
@@ -797,14 +782,286 @@ Sutton and Barto (2018). Reinforcement Learning: An Introduction. MIT Press. 2nd
 ---
 hideInToc: false
 level: 1
-title: '<span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>'
+title: <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
 layout: section
-color: blue
+color: teal-light
+---
+
+# Direct Preference Optimization
+#### <span class="bg-teal-500 text-teal-100 p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
+
+---
+layout: full
+---
+
+# DPO Overview
+#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
+
+<br>
+
+Can we take the RL out of RLHF?
+
+<br>
+
+<v-click at="1">
+
+<img src="./figures/dpo_overview.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
+
+<div class="ns-c-cite">
+
+Rafailov et al. (2024). Direct Preference Optimization: Your Language Model is Secretly a Reward Model. arXiv:2305.18290.
+
+</div>
+
+</v-click>
+
+---
+layout: default
+---
+
+# DPO Derivation
+#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
+
+<br>
+
+Recall the default PPO objective:
+
+$$
+\underset{\theta}{\argmax}~~\mathtt{rm}(y|x;\phi)-\beta D_{KL}(\pi(y|x;\theta);p(y|x;\theta^{\text{(ref)}})),~~y\sim\pi(y|x;\theta)
+$$
+
+<v-click at="1">
+
+For *any reward function*, assuming *offline* policy learning, the **optimal policy** is known to be<sup>[1]</sup>:
+
+$$\begin{align*}
+\pi^{*}(y|x)&=\frac{1}{Z(x)}p(y|x;\theta^{\text{ref}})\exp\left\{\frac{1}{\beta}\mathtt{rm}(y|x;\phi)\right\}
+\end{align*}$$
+
+where $Z(x)$ is an intractable normalizing function
+
+<v-click at="2">
+
+**No dependence on $\theta$, only $\phi$**
+
+</v-click>
+
+<br>
+
+<div class="ns-c-cite">
+
+[1] Peters, Mulling, & Altun (2010). Relative entropy policy search. AAAI (Vol. 24, No. 1, pp. 1607-1612).
+
+</div>
+
+</v-click>
+
+---
+layout: default
+---
+
+# DPO Derivation
+#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
+
+<br>
+
+For the **optimal policy** model, the corresponding reward model is:
+
+$${1|2}
+\begin{align*}
+\red{\pi^{*}(y|x)}&=\green{\frac{1}{Z(x)}}\blue{p(y|x;\theta^{\text{ref}})}\exp\left\{\orange{\frac{1}{\beta}}\purple{\mathtt{rm}(y|x;\phi)}\right\} \\
+\purple{\mathtt{rm}(y|x;\phi)}&=\orange{\beta}\log\frac{\red{\pi^{*}(y|x)}}{\blue{p(y|x;\theta^{\text{ref}})}}+\orange{\beta}\log\green{Z(x)}
+\end{align*}
+$$
+
+---
+layout: default
+---
+
+# DPO Derivation
+#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
+
+<br>
+
+For the **optimal policy** model, the corresponding reward model is:
+
+
+$$\purple{\mathtt{rm}(y|x;\phi)}=\orange{\beta}\log\frac{\red{\pi^{*}(y|x)}}{\blue{p(y|x;\theta^{\text{ref}})}}+\orange{\beta}\log\green{Z(x)}$$
+
+<v-click at="1">
+
+We use Bradley-Terry model to connect rewards to ranks:
+
+$$
+p(\green{y^{+}}\succ \red{y^{-}})=\sigma(\purple{\mathtt{rm}(\green{y^{+}}|x;\phi)}-\purple{\mathtt{rm}(\red{y^{-}}|x;\phi)})
+$$
+
+</v-click>
+
+<v-click at="2">
+
+Plugging in the natural reward model:
+$$
+p(\green{y^{+}}\succ \red{y^{-}})=\sigma\left(\orange{\beta}\log\frac{\red{\pi^{*}(\green{y^{+}}|x)}}{\blue{p(\green{y^{+}}|x;\theta^{\text{ref}})}}-\orange{\beta}\log\frac{\red{\pi^{*}(\red{y^{-}}|x)}}{\blue{p(\red{y^{-}}|x;\theta^{\text{ref}})}}\right)
+$$
+
+</v-click>
+
+---
+layout: default
+---
+
+# DPO Derivation
+#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
+
+<br>
+
+Since we don't have $\pi^{*}(y|x)$, use $\pi(y|x;\theta)$ as proxy:
+
+$$p(\green{y^{+}}\succ \red{y^{-}}|\theta)=\sigma\left(\beta\log\frac{\pi(\green{y^{+}}|x;\theta)}{p(\green{y^{+}}|x;\theta^{\text{ref}})}-\beta\log\frac{\pi(\red{y^{-}}|x;\theta)}{p(\red{y^{-}}|x;\theta^{\text{ref}})}\right)$$
+
+<v-click at="1">
+
+This is a differentiable policy model!
+
+$$\nabla_{\theta} \log p(\green{y^{+}}\succ \red{y^{-}}|\theta) =\beta \underbrace{p(\green{y^{+}}\succ \red{y^{-}}|\theta)}_{(1)}\cdot[\underbrace{\nabla_{\theta}\log \pi(\green{y^{+}}|x;\theta)}_{(2)}-\underbrace{\nabla_{\theta}\log \pi(\red{y^{-}}|x;\theta)}_{(3)}]$$
+
+</v-click>
+
+<v-click at="2">
+
+<div class="ns-c-tight">
+
+Achieves three things:
+1. Weights examples by certainty of reward model that $\green{y^{+}}\succ \red{y^{-}}$
+2. Increase likelihood of chosen samples
+3. Decrease likelihood of rejected samples
+
+</div>
+
+</v-click>
+
+---
+layout: two-cols-title
+---
+
+:: title ::
+
+# DPO is essentially just fine-tuning
+#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
+
+<br>
+
+$$\nabla_{\theta} \log p(\green{y^{+}}\succ \red{y^{-}}|\theta) =\beta \underbrace{p(\green{y^{+}}\succ \red{y^{-}}|\theta)}_{(1)}\cdot[\underbrace{\nabla_{\theta}\log \pi(\green{y^{+}}|x;\theta)}_{(2)}-\underbrace{\nabla_{\theta}\log \pi(\red{y^{-}}|x;\theta)}_{(3)}]$$
+
+:: left ::
+
+<div class="ns-c-tight">
+
+Achieves three things*:
+1. Weights examples by certainty of reward model that $\green{y^{+}}\succ \red{y^{-}}$
+2. Increase likelihood of chosen samples
+3. Decrease likelihood of rejected samples
+
+</div>
+
+:: right ::
+
+<img src="./figures/dpo.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
+
+:: default ::
+
+<small>
+
+\* Degenerate case where both likelihoods decrease exists
+
+</small>
+
+---
+layout: two-cols-title
+---
+
+:: title ::
+
+# The Good and the Bad of DPO
+#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
+
+:: left ::
+
+<v-click at="1">
+
+<div class="ns-c-tight">
+
+**Good**
+
+- Much simpler (just autoregressive finetuning)
+- Much cheaper
+- Much more stable
+
+</div>
+
+</v-click>
+
+<br>
+
+<v-click at="2">
+
+<div class="ns-c-tight" style="margin-top:1rem;">
+
+**Bad**
+
+- Offline, less exploration under policy
+- Less robust to OoD shifts<sup>[1]</sup>
+
+<div class="ns-c-cite" style="margin-top:3rem;">
+
+[1] Xu et al. 2024. Is DPO Superior to PPO for LLM Alignment? A Comprehensive Study. arXiv:2404.10719.
+
+</div>
+
+</div>
+
+</v-click>
+
+:: right ::
+
+<v-click at="1">
+
+```python
+import torch.nn.functional as F
+
+def dpo_loss(pi_logps, ref_logps, yw_idxs, yl_idxs, beta):
+  pi_yw_logps = pi_logps[yw_idxs]
+  pi_yl_logps = pi_logps[yl_idxs]
+
+  ref_yw_logps = ref_logps[yw_idxs]
+  ref_yl_logps = ref_logps[yl_idxs]
+
+  pi_logratios = pi_yw_logps - pi_yl_logps
+  ref_logratios = ref_yw_logps - ref_yl_logps
+
+  losses = -F.logsigmoid(beta * (
+    pi_logratios - ref_logratios)
+  )
+
+  rewards = beta * (pi_logps - ref_logps).detach()
+
+  return losses, rewards
+```
+
+</v-click>
+
+---
+hideInToc: false
+level: 1
+title: <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
+layout: section
+color: blue-light
 ---
 
 # Case Study: Making Llama2 Safe
 
-#### <span class="bg-blue-100 text-blue-500 p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
+#### <span class="bg-blue-500 text-blue-100 p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
 
 <br>
 
@@ -864,7 +1121,7 @@ color: white
 
 # Defining 'Safety'
 
-#### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
+#### <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
 
 <div class="ns-c-tight">
 
@@ -891,27 +1148,11 @@ color: white
 
 # Mitigating Safety Concerns in Pre-Training
 
-#### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
+#### <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
 
 :: left ::
 
 Train models on 2T tokens (~400 GPU years) in about 3 months
-
-<v-click at="1">
-
-Training data was scrubbed of Personal or Identifiable Information (PII) and any copyrighted materials
-
-<div class="ns-c-tight">
-
-Llama2 team did **not**:
-- filter out toxic examples (~0.2% of data)
-- actively balance training data
-
-This avoids **demographic erasure** and teaches models about text classes
-
-</div>
-
-</v-click>
 
 :: right ::
 
@@ -932,7 +1173,7 @@ color: white
 
 # RLHF Alignment Procedure
 
-#### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
+#### <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
 
 <br>
 
@@ -950,7 +1191,7 @@ color: white
 ---
 
 # Mitigating Safety Concerns with Finetuning
-#### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
+#### <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
 
 <br>
 
@@ -1002,9 +1243,374 @@ color: white
 
 :: title ::
 
+# RLHF: Rejection Sampling
+
+#### <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
+
+:: left ::
+
+Use rejection sampling to further finetune towards high-quality responses
+
+<v-click at="1">
+
+<div class="ns-c-tight">
+
+Relative to PPO:
+- Much, much cheaper
+- Increased exploration
+- Increased control
+- Less effective over long run<sup>[1]</sup>
+
+Requires competent model to be effective
+
+</div>
+
+<div class="ns-c-cite">
+
+[1] Bai et al. (2022). Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback. arXiv:2204.05862
+
+</div>
+
+</v-click>
+
+:: right ::
+
+<img src="./figures/rejection_sampling.webp" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
+
+<div class="ns-c-cite">
+
+Raschka (2023). [LLM Training: RLHF and Its Alternatives.](https://magazine.sebastianraschka.com/p/llm-training-rlhf-and-its-alternatives)
+
+</div>
+
+---
+layout: full
+color: white
+---
+
+# RLHF Iterations
+
+#### <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
+
+<div class="grid w-full h-fit grid-cols-2 grid-rows-2 mt-5 mb-auto">
+<div class="grid-item grid-col-span-1"><img src="./figures/llama2_rm_iterations.svg" style="width:90%;display: block;margin-left: auto;margin-right: auto;"></div>
+<div class="grid-item grid-col-span-1"><img src="./figures/llama2_gpt4_iterations.svg" style="width:90%;display: block;margin-left: auto;margin-right: auto;"></div>
+<div class="grid-item grid-col-span-2 text-left h-fit mt-2">
+
+Important to iterate RM, PPO and Rejection Sampling training
+
+</div>
+</div>
+
+---
+layout: two-cols-title
+color: white
+---
+
+:: title ::
+
+# Evaluation
+
+#### <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
+
+:: left ::
+
+<div class="ns-c-tight">
+
+Three main approaches to evaluation
+
+<v-clicks every="2">
+
+- RM/LLM-as-a-Judge
+- External Benchmarks
+- **Red-teaming**
+  - Domain experts try to break the model
+  - From 1.8 succesful prompts per annotator per hour to 0.45
+  - 90% of red-teaming prompts refusal
+
+</v-clicks>
+
+</div>
+
+:: right ::
+
+<v-click at="1">
+
+<img src="./figures/llama2_rlhf_impact.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
+
+<div class="ns-c-cite">
+
+Llama2 Team (2023). Llama 2: Open Foundation and Fine-Tuned Chat Models. arXiv:2307.09288
+
+</div>
+
+</v-click>
+
+---
+hideInToc: false
+level: 1
+title: <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Open Questions</span>
+layout: section
+color: violet-light
+---
+
+# Reward Hacking
+#### <span class="bg-violet-500 text-violet-100 p-0.5 pl-2 pr-2 m-0 rounded">Open Questions</span>
+
+---
+layout: default
+---
+
+# Reward Hacking
+#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Open Questions</span>
+
+<div style="display: block;margin-left: auto;margin-right: auto;width: 100%;">
+  <iframe width="100%" height=450 src="https://player.vimeo.com/video/745142691?h=3e2f0ad5d7"></iframe>
+</div>
+
+---
+layout: quote
+color: slate-light
+quotesize: text-l
+authorsize: text-s
+author: "Goodhart, C. A. (1984). Problems of monetary management: the UK experience. In Monetary theory and practice: The UK experience (pp. 91-121). London: Macmillan Education UK."
+---
+
+# Goodhart's Law
+
+"Any observed statistical regularity will tend to collapse once pressure is placed upon it for control purposes."
+
+---
+layout: quote
+color: slate-light
+quotesize: text-l
+authorsize: text-s
+author: "Munger, C. T. (1995). The psychology of human misjudgment. remarks, Harvard Law School, Cambridge, MA."
+---
+
+# Goodhart's Law
+
+"Show me the incentive and I’ll show you the outcome."
+
+---
+layout: two-cols-title
+color: white
+---
+
+:: title ::
+
+# What is the RM teaching the policy model?
+#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Open Questions</span>
+
+:: left ::
+
+
+
+::right::
+
+
+
+---
+layout: two-cols-title
+color: white
+---
+
+:: title ::
+
+# Do we even need an RM?
+#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Open Questions</span>
+
+:: left ::
+
+Very simple baselines correlate with human preference *almost* as well as trained RM
+
+<v-click at="1">
+
+Using $\mathtt{BLUE}(y,y_{\text{human}}),\quad y\sim p(y|x;\theta)$ is almost as good as 8B reward model<sup>[1]</sup>
+
+</v-click>
+
+<v-click at="2">
+
+Using $\mathtt{len}(y),\quad y\sim p(y|x;\theta)$ as $\mathtt{rm}$ results in a policy model as good as a full $\mathtt{rm}$<sup>[2]</sup>
+
+</v-click>
+
+<v-click at="1">
+
+<div class="ns-c-cite" style="margin-top:1rem;">
+
+[1] Chang et al. (2025). BLEUBERI: BLEU is a surprisingly effective reward for instruction following. arXiv:2505.11080.
+
+</div>
+
+</v-click>
+
+<v-click at="2">
+
+<div class="ns-c-cite">
+
+[2] Singhal et al. (2024). A Long Way to Go: Investigating Length Correlations in RLHF. arXiv:2310.03716.
+
+</div>
+
+</v-click>
+
+:: right ::
+
+<v-click at="1">
+
+<img src="./figures/open_questions_blue_beri.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
+
+<div class="ns-c-cite">
+
+Chang et al. (2025). BLEUBERI: BLEU is a surprisingly effective reward for instruction following. arXiv:2505.11080.
+
+</div>
+
+</v-click>
+
+---
+layout: two-cols-title
+color: white
+---
+
+:: title ::
+
+# How do we handle heterogenuous preference distributions?
+#### <span class="bg-violet-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Open Questions</span>
+
+:: left ::
+
+How do we handle users from:
+- different socio-economic backgrounds?
+- different political groups?
+- different cultures?
+- different languages?
+
+One $\mathtt{rm}$ pushes responses to global mode
+
+:: right ::
+
+<img src="./figures/open_questions_ai_gap.png" style="width:80%;display: block;margin-left: auto;margin-right: auto;">
+
+<div class="ns-c-cite">
+
+Elisa et al. (2025). The AI Gap: How Socioeconomic Status Affects Language Technology Interactions. Association for Computational Linguistics.
+
+
+</div>
+
+---
+hideInToc: false
+level: 1
+title: Appendix
+layout: section
+color: black
+---
+
+# Appendix
+
+---
+layout: default
+---
+
+# DPO Derivation
+#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
+
+<br>
+
+For the **optimal policy** model, the natural reward model is:
+
+$$
+\begin{align*}
+\red{\pi^{*}(y|x)}&=\green{\frac{1}{Z(x)}}\blue{p(y|x;\theta^{\text{ref}})}\exp\left\{\orange{\frac{1}{\beta}}\purple{\mathtt{rm}(y|x;\phi)}\right\} \\
+\exp\left\{-\orange{\frac{1}{\beta}}\purple{\mathtt{rm}(y|x;\phi)}\right\}&=\green{\frac{1}{Z(x)}}\frac{\blue{p(y|x;\theta^{\text{ref}})}}{\red{\pi^{*}(y|x)}} \\
+-\orange{\frac{1}{\beta}}\purple{\mathtt{rm}(y|x;\phi)}&=-\log\green{Z(x)}+\log\frac{\blue{p(y|x;\theta^{\text{ref}})}}{\red{\pi^{*}(y|x)}} \\
+\purple{\mathtt{rm}(y|x;\phi)}&=\orange{\beta}\log\frac{\red{\pi^{*}(y|x)}}{\blue{p(y|x;\theta^{\text{ref}})}}+\orange{\beta}\log\green{Z(x)}
+\end{align*}
+$$
+
+---
+layout: default
+---
+
+# DPO Derivation
+#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
+
+<br>
+
+For the **optimal policy** model, the natural reward model is:
+
+$$\purple{\mathtt{rm}(y|x;\phi)}=\orange{\beta}\log\frac{\red{\pi^{*}(y|x)}}{\blue{p(y|x;\theta^{\text{ref}})}}+\orange{\beta}\log\green{Z(x)}$$
+
+We use Bradley-Terry model to connect rewards to ranks:
+
+$$
+p(\green{y^{+}}\succ \red{y^{-}})=\sigma(\purple{\mathtt{rm}(\green{y^{+}}|x;\phi)}-\purple{\mathtt{rm}(\red{y^{-}}|x;\phi)})
+$$
+
+Plugging in the natural reward model:
+$$
+\begin{align*}
+p(\green{y^{+}}\succ \red{y^{-}})&=\sigma\left(\left(\beta\log\frac{\pi^{*}(\green{y^{+}}|x;\theta^{*})}{p(\green{y^{+}}|x;\theta^{\text{ref}})}+\beta\log Z(x)\right)-\left(\beta\log\frac{\pi^{*}(\red{y^{-}}|x;\theta^{*})}{p(\red{y^{-}}|x;\theta^{\text{ref}})}+\beta\log Z(x)\right)\right) \\
+&=\sigma\left(\beta\log\frac{\pi^{*}(\green{y^{+}}|x;\theta^{*})}{p(\green{y^{+}}|x;\theta^{\text{ref}})}-\beta\log\frac{\pi^{*}(\red{y^{-}}|x;\theta^{*})}{p(\red{y^{-}}|x;\theta^{\text{ref}})}\right)
+\end{align*}
+$$
+
+---
+layout: two-cols-title
+color: white
+---
+
+:: title ::
+
+# Mitigating Safety Concerns in Pre-Training
+
+#### <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
+
+:: left ::
+
+Train models on 2T tokens (~400 GPU years) in about 3 months
+
+<v-click at="1">
+
+Training data was scrubbed of Personal or Identifiable Information (PII) and any copyrighted materials
+
+<div class="ns-c-tight">
+
+Llama2 team did **not**:
+- filter out toxic examples (~0.2% of data)
+- actively balance training data
+
+This avoids **demographic erasure** and teaches models about text classes
+
+</div>
+
+</v-click>
+
+:: right ::
+
+<img src="./figures/llama2_loss_curves.png" style="width:80%;display: block;margin-left: auto;margin-right: auto;">
+
+<img src="./figures/llama2_pretraining_cost.png" style="width:80%;display: block;margin-left: auto;margin-right: auto;">
+
+<div class="ns-c-cite">
+
+Llama2 Team (2023). Llama 2: Open Foundation and Fine-Tuned Chat Models. arXiv:2307.09288
+
+</div>
+
+---
+layout: two-cols-title
+color: white
+---
+
+:: title ::
+
 # Supervised Safety Finetuning
 
-#### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
+#### <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
 
 :: left ::
 
@@ -1035,7 +1641,7 @@ color: white
 
 # Preference Data & Reward Model Training
 
-#### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
+#### <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
 
 Use different model checkpoints and generation parameters to generate many responses to same prompt
 
@@ -1056,7 +1662,7 @@ layout: full
 
 # Preference Data & Reward Model Training
 
-#### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
+#### <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
 
 <br>
 
@@ -1071,7 +1677,7 @@ color: white
 
 # RLHF: PPO
 
-#### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
+#### <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
 
 :: left ::
 
@@ -1095,75 +1701,9 @@ color: white
 
 :: title ::
 
-# RLHF: Rejection Sampling
-
-#### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
-
-:: left ::
-
-Use rejection sampling to further finetune towards high-quality responses
-
-<v-click at="1">
-
-<div class="ns-c-tight">
-
-Relative to PPO:
-- Much, much cheaper
-- Increased exploration
-- Increased control
-- Less effective over long run<sup>[1]</sup>
-
-Requires model to be competent to be effective
-
-</div>
-
-<div class="ns-c-cite">
-
-[1] Bai et al. (2022). Training a Helpful and Harmless Assistant with Reinforcement Learning from Human Feedback. arXiv:2204.05862
-
-</div>
-
-</v-click>
-
-:: right ::
-
-<img src="./figures/rejection_sampling.webp" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
-
-<div class="ns-c-cite">
-
-Raschka (2023). [LLM Training: RLHF and Its Alternatives.](https://magazine.sebastianraschka.com/p/llm-training-rlhf-and-its-alternatives)
-
-</div>
-
----
-layout: full
-color: white
----
-
-# RLHF Iterations
-
-#### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
-
-<div class="grid w-full h-fit grid-cols-2 grid-rows-2 mt-5 mb-auto">
-<div class="grid-item grid-col-span-1"><img src="./figures/llama2_rm_iterations.svg" style="width:90%;display: block;margin-left: auto;margin-right: auto;"></div>
-<div class="grid-item grid-col-span-1"><img src="./figures/llama2_gpt4_iterations.svg" style="width:90%;display: block;margin-left: auto;margin-right: auto;"></div>
-<div class="grid-item grid-col-span-2 text-left h-fit mt-2">
-
-Important to iterate RM, PPO and Rejection Sampling training
-
-</div>
-</div>
-
----
-layout: two-cols-title
-color: white
----
-
-:: title ::
-
 # Safety Context Distillation
 
-#### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
+#### <span class="bg-blue-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Safety in Llama2</span>
 
 :: left ::
 
@@ -1189,356 +1729,5 @@ Llama2 Team (2023). Llama 2: Open Foundation and Fine-Tuned Chat Models. arXiv:2
 </div>
 
 ---
-layout: two-cols-title
-color: white
+layout: end
 ---
-
-:: title ::
-
-# Evaluation
-
-#### <span class="text-white p-0.5 pl-2 pr-2 m-0 rounded" style="background-color: #0076ef">Safety in Llama2</span>
-
-:: left ::
-
-<div class="ns-c-tight">
-
-Three main approaches to evaluation
-
-<v-clicks>
-
-- RM/LLM-as-a-Judge
-- External Benchmarks
-- **Red-teaming**
-  - Domain experts try to break the model
-  - From 1.8 succesful prompts per annotator per hour to 0.45
-  - 90% of red-teaming prompts refusal
-
-</v-clicks>
-
-</div>
-
-:: right ::
-
-<v-click at="1">
-
-<img src="./figures/llama2_rlhf_impact.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
-
-<div class="ns-c-cite">
-
-Llama2 Team (2023). Llama 2: Open Foundation and Fine-Tuned Chat Models. arXiv:2307.09288
-
-</div>
-
-</v-click>
-
----
-hideInToc: false
-level: 1
-title: <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
-layout: section
-color: teal-light
----
-
-# Direct Preference Optimization
-#### <span class="bg-teal-500 text-teal-100 p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
-
----
-layout: full
----
-
-# DPO Overview
-#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
-
-<br><br>
-
-<img src="./figures/dpo_overview.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
-
-<div class="ns-c-cite">
-
-Rafailov et al. (2024). Direct Preference Optimization: Your Language Model is Secretly a Reward Model. arXiv:2305.18290.
-
-</div>
-
----
-layout: default
----
-
-# DPO Derivation
-#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
-
-<br>
-
-
-
-Recall the default PPO objective:
-
-$$
-\underset{\theta}{\argmax}~~\mathtt{rm}(y|x;\phi)-\beta D_{KL}(\pi(y|x;\theta);p(y|x;\theta^{\text{(ref)}})),~~y\sim\pi(y|x;\theta)
-$$
-
-<v-click at="1">
-
-For *any reward function*, assuming *offline* policy learning, the **optimal policy** is known to be<sup>[1]</sup>:
-
-$$\begin{align*}
-\pi^{*}(y|x)&=\frac{1}{Z(x)}p(y|x;\theta^{\text{ref}})\exp\left\{\frac{1}{\beta}\mathtt{rm}(y|x;\phi)\right\}
-\end{align*}$$
-
-where $Z(x)$ is an intractable normalizing function
-
-<v-click at="2">
-
-**No dependence on $\theta$, only $\phi$**
-
-</v-click>
-
-<br>
-
-<div class="ns-c-cite">
-
-[1] Peters, Mulling, & Altun (2010). Relative entropy policy search. AAAI (Vol. 24, No. 1, pp. 1607-1612).
-
-</div>
-
-</v-click>
-
----
-layout: default
----
-
-# DPO Derivation
-#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
-
-<br>
-
-For the **optimal policy** model, the corresponding reward model is:
-
-$${1|2|3|4|5}
-\begin{align*}
-\red{\pi^{*}(y|x)}&=\green{\frac{1}{Z(x)}}\blue{p(y|x;\theta^{\text{ref}})}\exp\left\{\orange{\frac{1}{\beta}}\purple{\mathtt{rm}(y|x;\phi)}\right\} \\
-\exp\left\{-\orange{\frac{1}{\beta}}\purple{\mathtt{rm}(y|x;\phi)}\right\}&=\green{\frac{1}{Z(x)}}\frac{\blue{p(y|x;\theta^{\text{ref}})}}{\red{\pi^{*}(y|x)}} \\
--\orange{\frac{1}{\beta}}\purple{\mathtt{rm}(y|x;\phi)}&=-\log\green{Z(x)}+\log\frac{\blue{p(y|x;\theta^{\text{ref}})}}{\red{\pi^{*}(y|x)}} \\
-\purple{\mathtt{rm}(y|x;\phi)}&=\orange{\beta}\log\frac{\red{\pi^{*}(y|x)}}{\blue{p(y|x;\theta^{\text{ref}})}}+\orange{\beta}\log\green{Z(x)}
-\end{align*}
-$$
-
----
-layout: default
----
-
-# DPO Derivation
-#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
-
-<br>
-
-For the **optimal policy** model, the corresponding reward model is:
-
-
-$$\mathtt{rm}(y|x;\phi)=\beta\log\frac{\pi^{*}(y|x)}{p(y|x;\theta^{\text{ref}})}+\beta\log{Z(x)}$$
-
-<v-click at="1">
-
-We use Bradley-Terry model to connect rewards to ranks:
-
-$$
-p(\green{y^{+}}\succ \red{y^{-}})=\sigma(\mathtt{rm}(\green{y^{+}}|x;\phi)-\mathtt{rm}(\red{y^{-}}|x;\phi))
-$$
-
-</v-click>
-
-<v-click at="2">
-
-Plugging in the natural reward model:
-$$
-\begin{align*}
-p(\green{y^{+}}\succ \red{y^{-}})&=\sigma\left(\left(\beta\log\frac{\pi^{*}(\green{y^{+}}|x;\theta^{*})}{p(\green{y^{+}}|x;\theta^{\text{ref}})}+\beta\log Z(x)\right)-\left(\beta\log\frac{\pi^{*}(\red{y^{-}}|x;\theta^{*})}{p(\red{y^{-}}|x;\theta^{\text{ref}})}+\beta\log Z(x)\right)\right) \\
-&=\sigma\left(\beta\log\frac{\pi^{*}(\green{y^{+}}|x;\theta^{*})}{p(\green{y^{+}}|x;\theta^{\text{ref}})}-\beta\log\frac{\pi^{*}(\red{y^{-}}|x;\theta^{*})}{p(\red{y^{-}}|x;\theta^{\text{ref}})}\right)
-\end{align*}
-$$
-
-</v-click>
-
----
-layout: default
----
-
-# DPO Derivation
-#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
-
-<br>
-
-Since we don't have $\pi^{*}(y|x)$, use $\pi(y|x;\theta)$ as proxy:
-
-$$p(\green{y^{+}}\succ \red{y^{-}}|\theta)=\sigma\left(\beta\log\frac{\pi(\green{y^{+}}|x;\theta)}{p(\green{y^{+}}|x;\theta^{\text{ref}})}-\beta\log\frac{\pi(\red{y^{-}}|x;\theta)}{p(\red{y^{-}}|x;\theta^{\text{ref}})}\right)$$
-
-<v-click at="1">
-
-This is a differentiable policy model!
-
-$$\begin{align*}\nabla_{\theta} &\log p(\green{y^{+}}\succ \red{y^{-}}|\theta) =\beta \underbrace{p(\green{y^{+}}\succ \red{y^{-}}|\theta)}_{(1)}\cdot\underbrace{\left[\nabla_{\theta}\log \pi(\green{y^{+}}|x;\theta)-\nabla_{\theta}\log \pi(\red{y^{-}}|x;\theta) \right]}_{(2)}\end{align*}$$
-
-</v-click>
-
-<v-click at="2">
-
-<div class="ns-c-tight">
-
-Achieves three things:
-1. Weights examples by certainty of reward model that $\green{y^{+}}\succ \red{y^{-}}$
-2. Increases likelihood of chosen samples
-3. Decreases likelihood of rejected samples
-
-</div>
-
-</v-click>
-
----
-layout: two-cols-title
----
-
-:: title ::
-
-# DPO is essentially just fine-tuning
-#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
-
-:: left ::
-
-<div class="ns-c-tight">
-
-Achieves three things*:
-1. Weights examples by certainty of reward model that $\green{y^{+}}\succ \red{y^{-}}$
-2. Increases likelihood of chosen samples
-3. Decreases likelihood of rejected samples
-
-</div>
-
-:: right ::
-
-<img src="./figures/dpo.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
-
-:: default ::
-
-<small>
-
-\* Degenerate case where both likelihoods decrease exists
-
-</small>
-
----
-layout: two-cols-title
----
-
-:: title ::
-
-# The Pros and Cons of DPO
-#### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
-
-:: left ::
-
-<v-click at="1">
-
-<div class="ns-c-tight">
-
-**Pros**
-
-- Much simpler
-- Much cheaper
-- Much more stable
-
-</div>
-
-</v-click>
-
-<br>
-
-<v-click at="2">
-
-<div class="ns-c-tight">
-
-**Cons**
-
-- Offline, less exploration under policy
-- Less robust to OoD shifts<sup>[1]</sup>
-
-<div class="ns-c-cite">
-
-[1] Xu et al. 2024. Is DPO Superior to PPO for LLM Alignment? A Comprehensive Study. arXiv:2404.10719.
-
-</div>
-
-</div>
-
-</v-click>
-
-:: right ::
-
-<v-click at="1">
-
-```python
-import torch.nn.functional as F 
-
-def dpo_loss(pi_logps, ref_logps, yw_idxs, yl_idxs, beta): 
-  pi_yw_logps = pi_logps[yw_idxs]
-  pi_yl_logps = pi_logps[yl_idxs]
-  
-  ref_yw_logps = ref_logps[yw_idxs]
-  ref_yl_logps = ref_logps[yl_idxs] 
-  
-  pi_logratios = pi_yw_logps - pi_yl_logps
-  ref_logratios = ref_yw_logps - ref_yl_logps  
-  
-  losses = -F.logsigmoid(beta * (pi_logratios - ref_logratios))
-  
-  rewards = beta * (pi_logps - ref_logps).detach() 
-  
-  return losses, rewards
-```
-
-</v-click>
-
----
-hideInToc: false
-level: 1
-title: <span class="bg-pink-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">Open Questions</span>
-layout: section
-color: pink
----
-
-# Reward Hacking
-#### <span class="bg-pink-200 text-pink-500 p-0.5 pl-2 pr-2 m-0 rounded">Open Questions</span>
-
----
-layout: default
----
-
-# Reward Hacking
-#### <span class="bg-pink-200 text-black p-0.5 pl-2 pr-2 m-0 rounded">Open Questions</span>
-
-<div style="display: block;margin-left: auto;margin-right: auto;width: 100%;">
-  <iframe width="100%" height=450 src="https://player.vimeo.com/video/745142691?h=3e2f0ad5d7"></iframe>
-</div>
-
----
-layout: quote
-color: slate-light
-quotesize: text-l
-authorsize: text-s
-author: "Goodhart, C. A. (1984). Problems of monetary management: the UK experience. In Monetary theory and practice: The UK experience (pp. 91-121). London: Macmillan Education UK."
----
-
-# Goodhart's Law
-
-"Any observed statistical regularity will tend to collapse once pressure is placed upon it for control purposes."
-
----
-layout: quote
-color: slate-light
-quotesize: text-l
-authorsize: text-s
-author: "Munger, C. T. (1995). The psychology of human misjudgment. remarks, Harvard Law School, Cambridge, MA."
----
-
-# Goodhart's Law
-
-"Show me the incentive and I’ll show you the outcome."
