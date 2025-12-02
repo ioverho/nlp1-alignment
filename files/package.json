@@ -1,4 +1,12 @@
 {
+  "name": "nlp1-alignment",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
   "dependencies": {
     "@slidev/cli": "^52.1.0",
     "@slidev/theme-default": "^0.25.0",
