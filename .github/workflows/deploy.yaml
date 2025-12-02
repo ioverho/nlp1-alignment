@@ -33,7 +33,8 @@ jobs:
         run: nci
 
       - name: Build
-        run: nr build --base /${{github.event.repository.name}}/files
+        working-directory: ./files
+        run: nr build --base /${{github.event.repository.name}}
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
