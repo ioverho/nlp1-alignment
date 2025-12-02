@@ -28,13 +28,8 @@ jobs:
       - name: Setup @antfu/ni
         run: npm i -g @antfu/ni
 
-      - run: ls -alth
-
-      - run: cd ./files
-
-      - run: ls -alth
-
       - name: Install dependencies
+        working-directory: ./files
         run: nci
 
       - name: Build
