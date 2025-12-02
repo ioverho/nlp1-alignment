@@ -21,6 +21,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set working directory
+        run: cd /${{github.event.repository.name}}/files
+
       - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
