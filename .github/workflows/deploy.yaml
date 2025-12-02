@@ -21,8 +21,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - run: ls -alth
+
       - name: Set working directory
-        run: cd /${{github.event.repository.name}}/files
+        run: cd /files
 
       - uses: actions/setup-node@v4
         with:
