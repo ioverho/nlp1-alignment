@@ -24,7 +24,7 @@ jobs:
       - run: ls -alth
 
       - name: Set working directory
-        run: cd /files
+        run: cd ./files
 
       - uses: actions/setup-node@v4
         with:
