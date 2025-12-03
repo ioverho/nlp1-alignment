@@ -148,7 +148,7 @@ align: l-lt-lt
   - Transformers (2017)
 
 - Objective is still the same
-  $$\underset{\theta}{\argmax} ~ \log p(x_{t}|x_{<t};\theta)$$
+  $$\underset{\theta}{\argmax}~~\log p(x_{t}|x_{<t};\theta)$$
 
 - But...
   - Lots of parameters
@@ -412,7 +412,7 @@ We have a language model that maximizes
 <v-click at="1">
 
 We want a model that maximizes **utility** (subject to alignment constraints):
-  $$\pi(y|x;\theta)=\underset{\theta}{\argmax}~~r(y|x),~~ y\sim p(y|x;\theta)$$
+  $$\underset{\theta}{\argmax}~~r(y|x),~~ y\sim \pi(y|x;\theta)$$
 
 </v-click>
 
@@ -442,9 +442,9 @@ align: l-lt-cm
 0. Finetune language model on human responses
 1. Annotate language model responses for human preference
 2. Train a model to estimate expected reward function
-   - The reward model $\mathtt{rm}(y;\phi)$
+   - The reward model $\mathtt{rm}(y|x;\phi)$
 3. Finetune LM to produce output that maximizes reward model score
-    $$\underset{\theta}{\argmax}~~\mathtt{rm}(y;\phi),~~ y\sim \pi(y|x;\theta) $$
+    $$\underset{\theta}{\argmax}~~\mathtt{rm}(y|x;\phi),~~ y\sim \pi(y|x;\theta) $$
 4. Repeat 2-3 until convergence
 
 </v-clicks>
@@ -469,7 +469,7 @@ title: Supervised Finetuning
 #### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 Fine tune using standard autoregressive objective
-$$\underset{\theta}{\argmax}\log p(y_{t}|x, y_{<t};\theta),~~x,y\sim \mathcal{D}^{\text{SFT}}$$
+$$\underset{\theta}{\argmax}~~\log p(y_{t}|x, y_{<t};\theta),~~x,y\sim \mathcal{D}^{\text{SFT}}$$
 
 <br>
 
@@ -583,7 +583,7 @@ $$
 <v-click at="3">
 
 Train to maximize Bradley-Terry reward probability:
-  $$\underset{\phi}{\argmax} \log \sigma(\mathtt{rm}(y^{+}|x;\phi)-\mathtt{rm}(y^{-}|x;\phi))$$
+  $$\underset{\phi}{\argmax}~~\log \sigma(\mathtt{rm}(y^{+}|x;\phi)-\mathtt{rm}(y^{-}|x;\phi))$$
 
 </v-click>
 
@@ -603,7 +603,7 @@ layout: two-cols-title
 <div class="ns-c-tight">
 
 Train to maximize Bradley-Terry reward probability:
-  $$\underset{\phi}{\argmax} \log \sigma(\mathtt{rm}(y^{+}|x;\phi)-\mathtt{rm}(y^{-}|x;\phi))$$
+  $$\underset{\phi}{\argmax}~~\log \sigma(\mathtt{rm}(y^{+}|x;\phi)-\mathtt{rm}(y^{-}|x;\phi))$$
 
 Essentially, maximize margin between pairwise responses:
 $$\mathtt{rm}(y^{+}|x;\phi)-\mathtt{rm}(y^{-}|x;\phi)$$
@@ -1680,7 +1680,7 @@ color: white
 Use different model checkpoints and generation parameters to generate many responses to same prompt
 
 Annotators are also asked to rate quality margin
-  $$\underset{\phi}{\argmax} \log \sigma(\mathtt{rm}(y^{+}|x;\phi)-\mathtt{rm}(y^{-}|x;\phi)-m(y^{+},y^{-}|x))$$
+  $$\underset{\phi}{\argmax}~~\log \sigma(\mathtt{rm}(y^{+}|x;\phi)-\mathtt{rm}(y^{-}|x;\phi)-m(y^{+},y^{-}|x))$$
 
 <v-click at="1">
 
