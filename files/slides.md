@@ -294,23 +294,24 @@ Good responses are:
 4. Creative
 5. Polite
 6. Affirming
-7. ...
+7. Complete
+8. Succinct
+9. Neutral
+10. Culturally aware
+11. ...
 
 </div>
 
 :: right ::
 
-<v-click at="1">
-
 <img src="https://imgs.xkcd.com/comics/the_three_laws_of_robotics.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
-
-</v-click>
 
 ---
 hideInToc: true
 layout: two-cols-title
 columns: is-6
 align: l-lt-lt
+color: white
 ---
 
 :: title ::
@@ -320,10 +321,13 @@ align: l-lt-lt
 
 :: left ::
 
-- Good responses are **non-stationary** and **context-dependent**
+Response 'goodness' is **non-stationary** and **context-dependent**
   - Different cultures react differently to the same language
-- Usually subtle differences make all the difference
-- No statistical measure can be defined
+
+Differences are subtle, but make all the difference
+
+
+No statistical measure can be defined
 
 :: right ::
 
@@ -402,8 +406,8 @@ layout: default
 # The Goal
 #### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
-We have a good language model $f(x_{t}|x_{<t};\theta)$ that maximizes
-  $$\log p(x_{t}|x_{<t};\theta)$$
+We have a language model that maximizes
+  $$\underset{\theta}{\argmax}~~\log p(x_{t}|x_{<t};\theta)$$
 
 <v-click at="1">
 
@@ -711,7 +715,7 @@ layout: two-cols-title
 
 :: title ::
 
-# The Good and the Bad of RLHF
+# The Good and the Bad of PPO
 #### <span class="bg-emerald-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">RLHF</span>
 
 :: left ::
@@ -722,7 +726,7 @@ layout: two-cols-title
 
 **Good**
 
-- Outperforms SFT and other non-RLHF techniques
+- Outperforms SFT and other non-PPO techniques
 - Learn human norms and values implicitly
 
 </div>
