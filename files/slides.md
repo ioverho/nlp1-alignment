@@ -869,7 +869,7 @@ layout: default
 
 <br>
 
-For the **optimal policy** model, the corresponding reward model is:
+For the **optimal policy** model, the natural reward model is:
 
 $${1|2}
 \begin{align*}
@@ -887,7 +887,7 @@ layout: default
 
 <br>
 
-For the **optimal policy** model, the corresponding reward model is:
+For the **optimal policy** model, the natural reward model is:
 
 
 $$\purple{\mathtt{rm}(y|x;\phi)}=\orange{\beta}\log\frac{\red{\pi^{*}(y|x)}}{\blue{p(y|x;\theta^{\text{ref}})}}+\orange{\beta}\log\green{Z(x)}$$
@@ -926,7 +926,7 @@ $$p(\green{y^{+}}\succ \red{y^{-}}|\theta)=\sigma\left(\beta\log\frac{\pi(\green
 
 <v-click at="1">
 
-This is a differentiable policy model!
+This is a differentiable objective!
 
 $$\nabla_{\theta} \log p(\green{y^{+}}\succ \red{y^{-}}|\theta) =\beta \underbrace{p(\green{y^{+}}\succ \red{y^{-}}|\theta)}_{(1)}\cdot[\underbrace{\nabla_{\theta}\log \pi(\green{y^{+}}|x;\theta)}_{(2)}-\underbrace{\nabla_{\theta}\log \pi(\red{y^{-}}|x;\theta)}_{(3)}]$$
 
@@ -954,9 +954,7 @@ layout: two-cols-title
 # DPO is essentially just fine-tuning
 #### <span class="bg-teal-500 text-white p-0.5 pl-2 pr-2 m-0 rounded">DPO</span>
 
-<br>
-
-$$\nabla_{\theta} \log p(\green{y^{+}}\succ \red{y^{-}}|\theta) =\beta \underbrace{p(\green{y^{+}}\succ \red{y^{-}}|\theta)}_{(1)}\cdot[\underbrace{\nabla_{\theta}\log \pi(\green{y^{+}}|x;\theta)}_{(2)}-\underbrace{\nabla_{\theta}\log \pi(\red{y^{-}}|x;\theta)}_{(3)}]$$
+$$p(\green{y^{+}}\succ \red{y^{-}}|\theta)=\sigma\left(\beta\log\frac{\pi(\green{y^{+}}|x;\theta)}{p(\green{y^{+}}|x;\theta^{\text{ref}})}-\beta\log\frac{\pi(\red{y^{-}}|x;\theta)}{p(\red{y^{-}}|x;\theta^{\text{ref}})}\right)$$
 
 :: left ::
 
@@ -1105,9 +1103,11 @@ Industry sized open-weights models with strong down-stream performance
 
 :: right ::
 
-<img src="./figures/llama_logo.svg" style="width:80%;display: block;margin-left: auto;margin-right: auto;">
+<img src="./figures/llama2_logo.png" style="width:80%;display: block;margin-left: auto;margin-right: auto;">
 
 <br><br>
+
+<v-click at="1">
 
 ```python
 import transformers
@@ -1117,6 +1117,8 @@ transformers.AutoModel.from_pretrained(
   token=...
 )
 ```
+
+</v-click>
 
 ---
 layout: default
@@ -1358,7 +1360,7 @@ layout: section
 color: violet-light
 ---
 
-# Reward Hacking
+# Open Questions
 #### <span class="bg-violet-500 text-violet-100 p-0.5 pl-2 pr-2 m-0 rounded">Open Questions</span>
 
 ---
@@ -1408,11 +1410,29 @@ color: white
 
 :: left ::
 
+The $\mathtt{rm}$ is very complex, but likely a suboptimal model for human preference
 
+<div class="ns-c-tight">
+
+Are 'LLM behaviours' due to reward hacking:
+1. Vebosity
+2. Sycophancy
+3. Listicles
+4. Vagueness
+5. Em-dashes
+6. ...
+
+</div>
 
 ::right::
 
+<img src="./figures/flattery_fluff_fog.png" style="width:100%;display: block;margin-left: auto;margin-right: auto;">
 
+<div class="ns-c-cite">
+
+Bharadwaj et al. (2025). Flattery, Fluff, and Fog: Diagnosing and Mitigating Idiosyncratic Biases in Preference Models. arXiv:2506.05339 .
+
+</div>
 
 ---
 layout: two-cols-title
@@ -1492,7 +1512,7 @@ How do we handle users from:
 - different cultures?
 - different languages?
 
-One $\mathtt{rm}$ pushes responses to global mode
+With one $\mathtt{rm}$ we push LLMs to globally dominant culture ([WEIRD](https://simplyputpsych.co.uk/psych-101-1/understanding-weird-western-educated-industrialized-rich-and-democratic)), instead of **pluralism**
 
 :: right ::
 
@@ -1504,6 +1524,16 @@ Elisa et al. (2025). The AI Gap: How Socioeconomic Status Affects Language Techn
 
 
 </div>
+
+---
+layout: fact
+---
+
+Many, many, many more <del>open questions</del> research opportunities
+
+---
+layout: end
+---
 
 ---
 hideInToc: false
@@ -1731,7 +1761,3 @@ Only uses largest model in producing responses
 Llama2 Team (2023). Llama 2: Open Foundation and Fine-Tuned Chat Models. arXiv:2307.09288
 
 </div>
-
----
-layout: end
----
