@@ -60,9 +60,9 @@ layout: two-cols-title
 
 - 2020 – 2022: MSc. AI at University of Amsterdam
 
-  - Thesis on with Wilker Aziz on meta-learning, morphology and translation
+  - Thesis with Wilker Aziz on meta-learning, morphology and translation
 
-  - Took NLP1 in 2020 (COVID edition)
+  - Took NLP1 in 2020
 
 <br>
 
